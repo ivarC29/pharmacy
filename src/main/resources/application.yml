@@ -1,0 +1,17 @@
+server:
+  port: 8091
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: your-application-name
+  data:
+    mongodb:
+      uri: mongodb+srv://${MONGODB_USER}:${MONGODB_PASS}@${MONGODB_URI}/pharmacy?retryWrites=true&w=majority&appName=Cluster0
